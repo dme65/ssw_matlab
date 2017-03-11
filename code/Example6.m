@@ -1,10 +1,10 @@
 % Inlining
-function inline_ex
+function Example6
 n  = 1e7;
 x  = 0;
 dx = 1 / n;
 
-% 1
+% (1) Inlined version
 tic
 s = 0;
 for k = 1:n
@@ -12,10 +12,9 @@ for k = 1:n
     x = x + dx;
 end
 toc
-s
 
 x = 0;
-% 2
+% (2) Use a separate function
 tic
 s = 0;
 for k = 1:n
@@ -23,7 +22,7 @@ for k = 1:n
     x = x + dx;
 end
 toc
-s
+
 end
 
 function y = f(x)

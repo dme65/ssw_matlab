@@ -1,3 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RUN WITH JIT ON AND OFF %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Using arrays for indexing
 n = 100000;
 a=full(sprand(n,1,0.001));
@@ -7,7 +11,7 @@ loops = 200;
 
 a_save = a;
 
-% 1
+% (1)
 tic
 for j = 1:loops
     for k = 1:length(a)
@@ -18,14 +22,14 @@ for j = 1:loops
 end
 toc
 
-% 2
+% (2) Logical indexing
 tic
 for j = 1:loops
     b(a_save < 0) = 0;
 end
 toc
 
-% 3
+% (3) Find indices and apply to c
 tic;
 for j = 1:loops
     indx = find(a_save < 0);

@@ -1,4 +1,4 @@
-% Fetch, read and run strange.m
+% Don't trust JIT!
 n = 1000000;
 a = randn(1, n);
 
@@ -13,18 +13,18 @@ toc
 % 2
 tic
 s2 = 0;
-for k = a
-    s2 = s2 + k;
+k  = 1;
+while k <= n
+    s2 = s2 + a(k);
+    k  = k + 1;
 end
 toc
 
 % 3
 tic
 s3 = 0;
-k  = 1;
-while k <= n
-    s3 = s3 + a(k);
-    k  = k + 1;
+for k = a
+    s3 = s3 + k;
 end
 toc
 
@@ -32,5 +32,3 @@ toc
 tic
 s4 = sum(a);
 toc
-
-err = [s1 s2 s3] - s4
