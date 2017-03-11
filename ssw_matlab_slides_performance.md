@@ -30,7 +30,16 @@ Note: 3-4 allocate $\mathcal{O}(np^2)$ memory
 
 Note: 1 requires inserting elements into the compressed sparse column format (expensive)
 
-Note: 2 avoids inserting elements, but need to fill out the values
+Note: 2 avoids inserting elements, but need to fill out the values (
 
 ---
 
+# Example 3: Using ()
+
+1. Matrix times vector $\mathcal{O}(n^2)$
+2. MATLAB evaluates from left to right, same as above
+3. Dot product $\mathcal{O}(n)$
+
+Note: Equivalent mathematically, but vastly different flop counts
+
+---
