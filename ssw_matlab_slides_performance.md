@@ -33,7 +33,7 @@
 4. MATLAB first forms [X, x] before assigning (bad)
 5. Avoids the for-loop, fastest way I know of
 
-Note: 3-4 allocate $\mathcal{O}(np^2)$ memory
+**Note:** 3-4 allocate $\mathcal{O}(np^2)$ memory
 
 ---
 
@@ -43,9 +43,9 @@ Note: 3-4 allocate $\mathcal{O}(np^2)$ memory
 2. Say what the non-zero elements are but assign values later
 3. Initialize with non-zero values
 
-Note: 1 requires inserting elements into the compressed sparse column (CSC) format (expensive)
+**Note:** 1 requires inserting elements into the compressed sparse column (CSC) format (expensive)
 
-Note: 2 avoids inserting elements, but need to fill out the values
+**Note:** 2 avoids inserting elements, but need to fill out the values
 
 ---
 
@@ -55,7 +55,7 @@ Note: 2 avoids inserting elements, but need to fill out the values
 2. MATLAB evaluates from left to right, same as above
 3. Dot product $\mathcal{O}(n)$
 
-Note: Equivalent mathematically, but vastly different flop counts
+**Note:** Equivalent mathematically, but vastly different flop counts
 
 ---
 
@@ -65,7 +65,7 @@ Note: Equivalent mathematically, but vastly different flop counts
 - Don't expect JIT to always speed-up your code!
 	- Better to write efficient code than rely on GIT
 - JIT can speed up 1 and 2, but not 3
-	- A bit surprising since 3 is so close to 
+	- A bit surprising since 3 is so similar to 1
 
 ---
 
