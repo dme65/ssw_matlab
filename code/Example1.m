@@ -3,7 +3,7 @@ n = 1000;
 p = 2000;
 x = randn(n, 1);
 
-% Allocate and fill out columns
+% (1) Allocate and fill out columns
 tic
 X = zeros(n, p);
 for k = 1:p
@@ -11,7 +11,7 @@ for k = 1:p
 end
 toc
 
-% Add columns
+% (2) Add columns
 tic
 X = [];
 for k = 1:p
@@ -19,7 +19,7 @@ for k = 1:p
 end
 toc
 
-% Add rows
+% (3) Add rows
 tic
 X = [];
 for k = 1:p
@@ -27,7 +27,7 @@ for k = 1:p
 end
 toc
 
-% Combine and assign to X
+% (4) Combine and assign to X
 tic
 X = [];
 for k = 1:p
@@ -36,7 +36,7 @@ end
 toc
 
 
-% Avoid the for-loop
+% (5) Avoid the for-loop
 tic
 X = repmat(x,[1 p]);
 toc

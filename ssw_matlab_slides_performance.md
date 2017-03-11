@@ -23,4 +23,14 @@ Note: 3-4 allocate $\mathcal{O}(np^2)$ memory
 
 ---
 
-# Example 2: Append to end
+# Example 2: Sparse memory allocation
+1. Add element by element to the sparse matrix
+2. Say what the non-zero elements are but assign values later
+3. Initialize with non-zero values
+
+Note: 1 requires inserting elements into the compressed sparse column format (expensive)
+
+Note: 2 avoids inserting elements, but need to fill out the values
+
+---
+
