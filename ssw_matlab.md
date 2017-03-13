@@ -181,12 +181,7 @@
 	- MATLAB Profiler rich with features
 ----
 
-# General Idea
-- Run Profiler on your code.
-- Look for functions that use a significant amount of time or that are called most frequently.
-- Determine whether there are changes you can make to those lines of code to improve performance.
-- Implement the potential performance improvements in your code. 
-- **If you profile the identical code twice, you can get slightly different results each time**.
+# Profiling using GUI
 
 ----
 
@@ -231,7 +226,7 @@ for i = 1:n
 end
 ```
 ```{r, eval=FALSE}
-parfor i = 1:n
+parfor i = 1:
     dostuff(i)
 end
 ```

@@ -1,22 +1,19 @@
+nruns = 20;
+n = 1000;
+
 % Run in serial
 tic
-n = 20;
-A = 500;
 a = zeros(n);
-for i = 1:n
-    a(i) = max(abs(eig(rand(A))));
+for i = 1:nruns
+    a(i) = max(abs(eig(rand(n))));
 end
 toc
 
-% Run in parallel
-delete(gcp('nocreate')); % Just in case there already exists a parallel pool
-parpool(2);
+% Run parallel
+%parpool(2);
 tic
-n = 20;
-A = 500;
 a = zeros(n);
-parfor i = 1:n
-    a(i) = max(abs(eig(rand(A))));
+parfor i = 1:nruns
+    a(i) = max(abs(eig(rand(n))));
 end
 toc
-delete(gcp('nocreate'));
