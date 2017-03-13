@@ -33,7 +33,7 @@ saveas(gcf,'movingAvg.png');
 
 end
 
-% LPfilter(n) is a moving average, lowpass filter forcing each element to
+% LPfilter(y,k) is a moving average, lowpass filter forcing each element to
 % be an unweighted sum of its k neighbors
 %
 % INPUT:
