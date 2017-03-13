@@ -17,8 +17,8 @@ end
 % Save y as data
 save('y.mat','y');
 
-% Low Pass Filter with a window size of 5
-k = 5;
+% Low Pass Filter with a window size of 2
+k = 2;
 yFiltered = LPfilter(y,k);
 
 % Save y as data

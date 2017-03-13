@@ -1,4 +1,4 @@
-% Serial
+% Estimate Pi in Serial
 tic;
 count = 0;      % count variable, start value set to zero
 n=1000000;
@@ -15,11 +15,10 @@ toc;
 disp('Value of Pi is:');
 disp(piapprox);
 
-% Two Workers
+% Estimate Pi with Two Workers
 parpool(2)
 tic;
 count = 0;      % count variable, start value set to zero
-n=1000000;
 parfor i=1:n 
     x=rand;
     y=rand;
