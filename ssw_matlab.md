@@ -140,7 +140,7 @@ for i = 1:n
 end
 ```
 ```{r, eval=FALSE}
-parfor i = 1:
+parfor i = 1:n
     dostuff(i)
 end
 ```
