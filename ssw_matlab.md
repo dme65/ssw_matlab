@@ -181,8 +181,12 @@
 	- MATLAB Profiler rich with features
 ----
 
-# Profiling using GUI
-
+# General Idea
+- Run Profiler on your code.		
+- Look for functions that use a significant amount of time or that are called most frequently.		
+- Determine whether there are changes you can make to those lines of code to improve performance.		
+- Implement the potential performance improvements in your code.
+- **If you profile the identical code twice, you can get slightly different results each time**.
 ----
 
 # Profiling in Code
@@ -202,7 +206,7 @@ profsave()
 - Set of workers allocated before large task
 - Expensive to allocate and deallocate!
 - Workers located on local or remote machine
-	- local is the default
+	- Local is the default
 
 ----
 
@@ -226,7 +230,7 @@ for i = 1:n
 end
 ```
 ```{r, eval=FALSE}
-parfor i = 1:
+parfor i = 1:n
     dostuff(i)
 end
 ```
