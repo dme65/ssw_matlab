@@ -43,20 +43,20 @@ end
 % yFiltered = filtered signal
 
 function yFiltered = LPfilter(y, k)
-    
+
     % Pad y with zeros to make indexing easier
     n = length(y);
     z = zeros(1,k);
     y = [z, y, z];
-    
+
     % Iterate through y and calculate moving average
     for i = 1:n
         idx = i+k;
-        sum = 0;
+        ssum = 0;
         ytemp = y(idx-k:idx+k);
         for j = 1:2*k+1
-            sum = sum + ytemp(j);
+            ssum = ssum + ytemp(j);
         end
-        yFiltered(i) = sum/k;
+        yFiltered(i) = ssum/k;
     end
 end
