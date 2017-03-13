@@ -150,7 +150,7 @@ end
 ----
 # Other Paradigms Supported
 - Mapreduce
-- SPSD (Single Program Multiple Data)
+- SPMD (Single Program Multiple Data)
 - Shared Arrays 
 	- (Distributed Memory Paradigms)
 - Most of these can be accomplished via parfor
