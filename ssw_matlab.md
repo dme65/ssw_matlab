@@ -75,24 +75,27 @@
 	- Create a new variable rather than assigning data of a different type to an existing variable
 	- Changing the class or array shape of an existing  variable takes extra time to process
 - Use short-circuit operators
-	- Use short-circuiting logical operators, && and || when possible. 
-	- Short-circuiting is more efficient because MATLAB evaluates the second operand only when it is necessary
+	- Use && and || when possible. 
+	- Efficient because MATLAB evaluates the second operand only when it is necessary
 
 ---
 
 ## MATLAB programming practices
 - Avoid global variables
-	- Minimizing the use of global variables is a good programming practice
-	- Global variables can decrease performance of your MATLAB code
+	- Good programming practice
+	- Can decrease performance of your code
 - Avoid overloading built-ins
 	- Avoid overloading built-in functions on any standard MATLAB data classes.
+	- Please avoid using `sum` as a variable name =(
 
 ---
 
 ## MATLAB programming practices
 - Avoid using "data as code"
-	- If you have large portions of code (for example, over 500 lines) that generate variables with constant values, consider constructing the variables and saving them in a MAT-file. Then you can load the variables instead of executing code to generate them.
-- Use functions instead of scripts. Functions are generally faster.
+	- Avoid lots of code that generate variables
+	- It is better to load them from a MAT-file
+- Use functions instead of scripts. 
+	- Functions are generally faster.
 - Prefer local functions over nested functions
 - Use modular programming
 
