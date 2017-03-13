@@ -5,6 +5,7 @@
 % 2. What do people think will be the most expensive operation in movingAvg()?
 % 3. How do we make this faster?
 function movingAvg()
+feature accel off
 
 % Generate Signal with noise
 n = 100000;
