@@ -173,7 +173,7 @@ pmode('quit')
 - Hacky (and very inefficient) Solution: 
 ```{r, eval=FALSE}
 function hacky(data_1, data_2 ... data_k)
-parfor i = 1:k
+parfor idx = 1:k
     switch idx
     	case 1
         case 2
