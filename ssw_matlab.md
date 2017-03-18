@@ -18,55 +18,61 @@
 ## MATLAB programming practices
 
 - Preallocate
-  ```matlab
-  x = 0;
-  for k = 2:1000000
-      x(k) = x(k-1) + 5;
-  end
-  ```
-  ```matlab
-  x = zeros(1000000, 1);
-  for k = 2:1000000
-      x(k) = x(k-1) + 5;
-  end
-  ```
+
+	```matlab
+	x = 0;
+	for k = 2:1000000
+		x(k) = x(k-1) + 5;
+	end
+	```
+	
+	```matlab
+	x = zeros(1000000, 1);
+	for k = 2:1000000
+		x(k) = x(k-1) + 5;
+	end
+	```
 ---
 
 ## MATLAB programming practices
 
 - Vectorize
-   ```matlab
-  t = 0:.01:10;
-  y = sin(t);
-  ```
-  ```matlab
-  i = 0;
-  for t = 0:.01:10
-      i = i + 1;
-      y(i) = sin(t);
-  end
-  ```
-  
+
+	```matlab
+	t = 0:.01:10;
+	y = sin(t);
+	```
+	
+	```matlab
+	i = 0;
+	for t = 0:.01:10
+		i = i + 1;
+		y(i) = sin(t);
+	end
+	```
+
 ---
 
 ## MATLAB programming practices
 - Place independent operations outside loops
-   ```matlab
-   for i=1:n
-       val = fun(i);
-       for j=1:n
-           ...
-       end
-   end
-   ```
-   ```matlab
-   for i=1:n
-       for j=1:n
-           val = fun(i);
-           ...
-       end
-   end
-   ```
+
+	```matlab
+	for i=1:n
+		val = fun(i);
+		for j=1:n
+			...
+		end
+	end
+	```
+	   
+	```matlab
+	for i=1:n
+		for j=1:n
+			val = fun(i);
+			...
+		end
+	end
+	```
 
 ---
 
@@ -75,7 +81,7 @@
 	- Create a new variable rather than assigning data of a different type to an existing variable
 	- Changing the class or array shape of an existing  variable takes extra time to process
 - Use short-circuit operators
-	- Use && and || when possible. 
+	- Use && and || when possible.
 	- Efficient because MATLAB evaluates the second operand only when it is necessary
 
 ---
@@ -94,7 +100,7 @@
 - Avoid using "data as code"
 	- Avoid lots of code that generate variables
 	- It is better to load them from a MAT-file
-- Use functions instead of scripts. 
+- Use functions instead of scripts.
 	- Functions are generally faster.
 - Prefer local functions over nested functions
 - Use modular programming
@@ -172,14 +178,15 @@
 	- Not great if the columns are small
 	- Larger speed-up makes the matvecs faster
 
-----
+---
 
 # Profiling
 - Program analysis that measures memory/time complexity of a program and the frequency/duration of function calls.
 - Lots of software for profiling out there
 	- Language specific; MATLAB has own!
 	- MATLAB Profiler rich with features
-----
+
+---
 
 # General Idea
 - Run Profiler on your code.		
@@ -187,10 +194,11 @@
 - Determine whether there are changes you can make to those lines of code to improve performance.		
 - Implement the potential performance improvements in your code.
 - **If you profile the identical code twice, you can get slightly different results each time**.
-----
+
+---
 
 # Profiling in Code
-```{r, eval=FALSE}
+```matlab
 profile('on')
 ...
 dostuff() // we would like dostuff to run faster
@@ -199,7 +207,7 @@ profile('viewer')
 profsave()
 ```
 
-----
+---
 
 # Parallel Pool
 
@@ -208,10 +216,10 @@ profsave()
 - Workers located on local or remote machine
 	- Local is the default
 
-----
+---
 
 # Pool Managment
-```{r, eval=FALSE}
+```matlab
 parpool(4) //Before parallel area
 ...
 ...
@@ -221,19 +229,21 @@ delete(p)
 - Pool also automatically created at the start of parallel function calls
 	- Manual managment in code base is superior (and very easy)
 
-----
+---
 
 # Parallel Loops
-```{r, eval=FALSE}
+```matlab
 for i = 1:n
-    dostuff(i)
+	dostuff(i)
 end
 ```
-```{r, eval=FALSE}
+
+```matlab
 parfor i = 1:n
-    dostuff(i)
+	dostuff(i)
 end
 ```
+
 - Note that loop iterations are independent!
 - Ordering of loop nondeterministic
 	- i.e. 6, 2, 3, 1, 5, 4
@@ -243,35 +253,37 @@ end
 # Other Paradigms Supported
 - Mapreduce
 - SPSD (Single Program Multiple Data)
-- Shared Arrays 
+- Shared Arrays
 	- (Distributed Memory Paradigms)
 - Most of these can be accomplished via parfor
-	- these implementations are optimized and less of a headache 
+	- these implementations are optimized and less of a headache
 - No While-Looping (out-of-the-box)
 
 ----
 
 # Interactive Parallel
-```{r, eval=FALSE}
+```matlab
 pmode('start',4) //opens up GUI
 ...
 ...
 pmode('quit')
 ```
+
 - Interative Parallel mode provides a GUI to each worker
 	- GUI limited (not regular MATLAB command line)
 
 ----
 
-# Limitations 
+# Limitations
 - Not good for fine-grained managment
 	-  "I want worker A to do task A, worker B to do task B ... worker K to do task K"
-- Hacky (and very inefficient) Solution: 
-```{r, eval=FALSE}
+- Hacky (and very inefficient) Solution:
+
+```matlab
 function hacky(data_1, data_2 ... data_k)
-parfor i = 1:k
+for i = 1:k
     switch idx
-    	case 1
+        case 1
         case 2
         ...
         case k
@@ -282,7 +294,7 @@ end
 ----
 
 # Limitations
-- Some functions will use parallelism 
+- Some functions will use parallelism
 	- Hard to know ... sometimes adding workers slows down code
 	- Toolboxes in Comp Bio, Optimization, Singal Processing
 - In general, far less expressive than a dedicated parallel language
